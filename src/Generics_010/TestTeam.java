@@ -6,10 +6,15 @@ public class TestTeam {
 		BaseballPlayer ahmeti = new BaseballPlayer("ahmeti");
 		SoocerPlayer usame = new SoocerPlayer("usame");
 
-		Team vienna = new Team("vienna");
+		Team<FootballPlayer> vienna = new Team<>("vienna");
 		vienna.addPlayer(meski);
-		vienna.addPlayer(ahmeti);
-		vienna.addPlayer(usame);
+//		vienna.addPlayer(ahmeti);
+//		vienna.addPlayer(usame);
+
+		Team<BaseballPlayer> baseballPlayerTeam = new Team<>("Austria Vienna");
+		baseballPlayerTeam.addPlayer(ahmeti);
+
+
 
 		System.out.println(vienna.numPlayers());
 	}

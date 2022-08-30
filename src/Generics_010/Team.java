@@ -2,7 +2,9 @@ package Generics_010;
 
 import java.util.ArrayList;
 
-public class Team<T> {
+// Coach und Manager müssen Interfaces sein
+// public class Team<T extends Player & Coach & Manager> {
+public class Team<T extends Player> {
 	private String name;
 	int played = 0;
 	int won = 0;
@@ -21,11 +23,11 @@ public class Team<T> {
 
 	public boolean addPlayer(T p) {
 		if (members.contains(p)) {
-			System.out.println(((Player) p).getName() + " is already on this team");
+			System.out.println(p.getName() + " is already on this team");
 			return false;
 		} else {
 			members.add(p);
-			System.out.println(((Player) p).getName() + " picked for team " + this.name);
+			System.out.println(p.getName() + " picked for team " + this.name);
 			return true;
 		}
 	}
