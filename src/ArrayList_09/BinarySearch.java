@@ -12,16 +12,55 @@ public class BinarySearch {
 
 		int start = 0;
 		int end = arr.length - 1;
-		int middle = (start + end) / 2;
 
-		while (target != arr[middle]) {
+		while (start <= end) {
+			int middle = start + (end - start) / 2; // same as (start +end) / 2
+
 			if (target < arr[middle]) {
 				end = middle - 1;
-			} else {
+			} else if (target > arr[middle]) {
 				start = middle + 1;
+			} else {
+				return middle;
 			}
-			middle = (start + end) / 2;
 		}
-		return middle;
+		return -1;
+	}
+
+	public static int orderAgnosticBinarySearch(int[] arr, int target) {
+		if (arr.length == 0) return -1;
+		int start = 0;
+		int end = arr.length - 1;
+
+		// find out is ASC or DESC
+		boolean isAsc = arr[start] < arr[end];
+
+		while (start <= end) {
+			int middle = start + (end - start) / 2;
+
+			if (arr[middle] == target) {
+				return middle;
+			}
+
+			if (isAsc) {
+				if (target < arr[middle]) {
+					end = middle - 1;
+				} else if (target > arr[middle]) {
+					start = middle + 1;
+				} else {
+					return middle;
+				}
+			} else {
+				if (target > arr[middle]) {
+					end = middle - 1;
+				} else if (target < arr[middle]) {
+					start = middle + 1;
+				} else {
+					return middle;
+				}
+			}
+
+		}
+		return -1;
 	}
 }
