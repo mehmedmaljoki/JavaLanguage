@@ -4,6 +4,13 @@ public class LinearSearch {
 	public static void main(String[] args) {
 		int[] arr = {2, 4, 56, 3, 6, 3, 6, 3, 6, 2, 54, 252, 43, 2, 5};
 		System.out.println("position: " + linearSearch(arr, 4));
+
+		String name = "Mehmed";
+		char target = 'h';
+		System.out.println(search(name, target));
+
+		int[] nums = {12, 345, 2, 6, 7896};
+		System.out.println(findNumbers(nums));
 	}
 
 	public static int linearSearch(int[] arr, int target) {
@@ -16,5 +23,52 @@ public class LinearSearch {
 			}
 		}
 		return -1;
+	}
+
+	public static boolean search(String str, char target) {
+		if (str.length() == 0) return false;
+
+		for (int i = 0; i < str.length(); i++) {
+			if (target == str.charAt(i)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Given an array nums of integers, return how many of them contain an even number of digits.
+	 *
+	 *
+	 *
+	 * Example 1:
+	 *
+	 * Input: nums = [12,345,2,6,7896]
+	 * Output: 2
+	 * Explanation:
+	 * 12 contains 2 digits (even number of digits).
+	 * 345 contains 3 digits (odd number of digits).
+	 * 2 contains 1 digit (odd number of digits).
+	 * 6 contains 1 digit (odd number of digits).
+	 * 7896 contains 4 digits (even number of digits).
+	 * Therefore only 12 and 7896 contain an even number of digits.*
+	 * @param nums
+	 * @return
+	 */
+	public static int findNumbers(int[] nums) {
+		if (nums.length == 0) return 0;
+		int counter = 0;
+		for (int i = 0; i < nums.length; i++) {
+			int number = nums[i];
+			int digits = 0;
+			while (number > 0) {
+				digits++;
+				number /= 10;
+			}
+			if (digits % 2 == 0) {
+				counter++;
+			}
+		}
+		return counter;
 	}
 }
