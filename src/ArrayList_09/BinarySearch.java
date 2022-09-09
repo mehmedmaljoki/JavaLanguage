@@ -187,4 +187,35 @@ public class BinarySearch {
 		return potentialAns;
 	}
 
+	static int ans(int[] arr, int target) {
+		// frst find the range
+		// first start with a box of size 2
+		int start = 0;
+		int end = 1;
+
+		// condition for the target ta lie in the range
+		while (target > arr[end]) {
+			int newStart = end + 1;
+
+			//double the box value
+			end = end + (end - start + 1) * 2;
+			start = newStart;
+		}
+		return searchingIntoInfinateArray(arr, target, start, end);
+	}
+	static int searchingIntoInfinateArray(int[] arr, int target, int start, int end) {
+		while (start <= end) {
+			int middle = start + (end - start) / 2; // same as (start +end) / 2
+
+			if (target < arr[middle]) {
+				end = middle - 1;
+			} else if (target > arr[middle]) {
+				start = middle + 1;
+			} else {
+				return middle;
+			}
+		}
+		return -1;
+	}
+
 }

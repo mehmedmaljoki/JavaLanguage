@@ -29,3 +29,21 @@ L
 src/Generics_010/League.java,6\d\6d25ed8a4e2cd9b5924188583064d823cf40bc6e
 R
 "src/ArrayList_09/LinearSearch.java,8\e\8ee41736c0da73ee0784110785f27e0e9a367dd7
+w
+G.idea/sonarlint/issuestore/8/e/8ee41736c0da73ee0784110785f27e0e9a367dd7,e\4\e496baa9190eccf8a5f596ab69ebfe101f293eaf
+w
+G.idea/sonarlint/issuestore/c/7/c7c087d8274a0dd06134fbef2e7db45cec08f3a6,4\0\40942daaa901164485ecc0662022491597dc52a9
+w
+G.idea/sonarlint/issuestore/d/0/d08b441ddfd459046a67778a098fcd9d45b79223,9\c\9c5e3bda7b560d1659ab62ead5ccac9f09c93c7d
+w
+G.idea/sonarlint/issuestore/9/7/97278c9539af73b4a15b8349814c200c8d4b7637,e\e\eeae8f19a8f4af758cd7f670c0e76aec611f0e9f
+w
+G.idea/sonarlint/issuestore/8/8/88adcdc47b091b9786fe2b6e4248bfaf505b614d,1\c\1ce079cd67b7995bacafab52b5b0cdf17c86f45c
+w
+G.idea/sonarlint/issuestore/7/c/7c3ff52421a7201190f4f1d0bbcfbb42a4fc9ab5,8\7\875a9001e74cbf1bee7361b34da1f126f06e03cc
+w
+G.idea/sonarlint/issuestore/6/d/6d25ed8a4e2cd9b5924188583064d823cf40bc6e,0\7\07a3796549d8dc1edd0fd3db4ae1c4666d085a9f
+w
+G.idea/sonarlint/issuestore/6/4/649f754ed9c9045b92bb3ea4ee22a90875a2fa94,f\5\f5da8d9b3711b83e4fe9e8e18ba2c90f342fd501
+w
+G.idea/sonarlint/issuestore/5/9/592a96ddec0e2d5b8908f9f16153f9da67f8d182,6\c\6c653692927b7618880d98ab1c5ec65d0e7cdffa
