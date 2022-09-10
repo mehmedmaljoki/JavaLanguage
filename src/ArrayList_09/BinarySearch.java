@@ -371,4 +371,13 @@ public class BinarySearch {
 		}
 		return -1;
 	}
+
+	// how many times is the Array rotated?
+	public static int rotationCount(int[] arr) {
+		int pivot = findPivotDuplicatedValues(arr);
+		return pivot + 1;
+	}
+
+
+
 }
