@@ -379,5 +379,43 @@ public class BinarySearch {
 	}
 
 
+	/**
+	 * arr = {7,2,5,10,8} und kann aufgeteilt werden in muss durchgehen sein
+	 * {7,2,5,10} und {8}, summe {24} und {8} oder
+	 * {7,2,5} und {10, 8}, summe {14} und {18} oder
+	 * {7,2} und {5,10,8}, summe {9} und {23} oder
+	 * {7} und {2,5,10,8}, summe {7} und {25}
+	 */
+	public static int splitArray(int[] nums, int m) {
+		int start = 0;
+		int end = 0;
+		for (int i = 0; i < nums.length; i++) {
+			start = Math.max(start, nums[i]); // in the end of the loop this will contain the max element of the array
+			end += nums[i];
+		}
 
+		// binary Search
+		while (start < end) {
+			int mid = start + (end - start) / 2;
+
+			int sum = 0;
+			int pieces = 1;
+			for (int num : nums) {
+				if (sum + num > mid) {
+					sum = num;
+					pieces++;
+				} else {
+					sum += num;
+				}
+			}
+
+			if (pieces > m) {
+				start = mid + 1;
+			} else {
+				end = mid;
+			}
+		}
+
+		return end; // start == end
+	}
 }
