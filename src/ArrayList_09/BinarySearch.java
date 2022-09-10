@@ -137,18 +137,6 @@ public class BinarySearch {
 	}
 
 	// https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
-
-	/**
-	 * Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
-	 * <p>
-	 * If target is not found in the array, return [-1, -1].
-	 * <p>
-	 * You must write an algorithm with O(log n) runtime complexity.
-	 *
-	 * @param nums
-	 * @param target
-	 * @return
-	 */
 	public static int[] searchRange(int[] nums, int target) {
 		int[] ans = {-1, -1};
 
@@ -203,6 +191,7 @@ public class BinarySearch {
 		}
 		return searchingIntoInfinateArray(arr, target, start, end);
 	}
+
 	static int searchingIntoInfinateArray(int[] arr, int target, int start, int end) {
 		while (start <= end) {
 			int middle = start + (end - start) / 2; // same as (start +end) / 2
@@ -218,4 +207,168 @@ public class BinarySearch {
 		return -1;
 	}
 
+	// https://leetcode.com/problems/peak-index-in-a-mountain-array/
+	public static int peakIndexInMountainArray(int[] arr) {
+		int start = 0;
+		int end = arr.length - 1;
+
+		while (start < end) {
+			int middle = start + (end - start) / 2; // same as (start +end) / 2
+
+			if (arr[middle] > arr[middle + 1]) {
+				// you are in the dec part of the array
+				// this may be the ans, but look at left
+				end = middle; // this is why end != middle - 1
+			} else {
+				// you are in acs part of array
+				start = middle + 1; // because we know that middle + 1> middle element
+			}
+		}
+		return start;
+	}
+
+	// https://leetcode.com/problems/find-in-mountain-array/
+	int search(int[] arr, int target) {
+		int peak = peakIndexInMountainArray(arr);
+		int firstTry = orderAgnosticBinarySearchForFindInMountain(arr, target, 0, peak);
+		if (firstTry != -1) {
+			return firstTry;
+		}
+		return orderAgnosticBinarySearchForFindInMountain(arr, target, peak + 1, arr.length - 1);
+	}
+
+	public static int orderAgnosticBinarySearchForFindInMountain(int[] arr, int target, int start, int end) {
+		// find out is ASC or DESC
+		boolean isAsc = arr[start] < arr[end];
+
+		while (start <= end) {
+			int middle = start + (end - start) / 2;
+
+			if (arr[middle] == target) {
+				return middle;
+			}
+
+			if (isAsc) {
+				if (target < arr[middle]) {
+					end = middle - 1;
+				} else if (target > arr[middle]) {
+					start = middle + 1;
+				} else {
+					return middle;
+				}
+			} else {
+				if (target > arr[middle]) {
+					end = middle - 1;
+				} else if (target < arr[middle]) {
+					start = middle + 1;
+				} else {
+					return middle;
+				}
+			}
+
+		}
+		return -1;
+	}
+
+
+	// https://leetcode.com/problems/search-in-rotated-sorted-array/
+	public static int searchInARotatedSortedArray(int[] nums, int target) {
+		int pivot = findPivot(nums);
+
+		// if you did not find a pivot, it means the array is not rotated
+		if (pivot == -1) {
+			// just do normal binary search
+			return binarySearch(nums, target, 0, nums.length - 1);
+		}
+
+		// if pivot is found, you have found 2 asc sorted arrays
+		if (nums[pivot] == target) {
+			return pivot;
+		}
+
+		if (target >= nums[0]) {
+			return binarySearch(nums, target, 0, pivot - 1);
+		}
+
+		return binarySearch(nums, target, pivot + 1, nums.length - 1);
+	}
+
+	static int binarySearch(int[] arr, int target, int start, int end) {
+		while (start <= end) {
+			// find the middle element
+//            int mid = (start + end) / 2; // might be possible that (start + end) exceeds the range of int in java
+			int mid = start + (end - start) / 2;
+
+			if (target < arr[mid]) {
+				end = mid - 1;
+			} else if (target > arr[mid]) {
+				start = mid + 1;
+			} else {
+				// ans found
+				return mid;
+			}
+		}
+		return -1;
+	}
+
+	static int findPivot(int[] arr) {
+		int start = 0;
+		int end = arr.length - 1;
+
+		while (start <= end) {
+			int mid = start + (end - start) / 2;
+			// 4 cases over here
+			if (mid < end && arr[mid] > arr[mid + 1]) {
+				return mid;
+			}
+			if (mid > start && arr[mid] < arr[mid - 1]) {
+				return mid - 1;
+			}
+			if (arr[mid] <= arr[start]) {
+				end = mid - 1;
+			} else {
+				start = mid + 1;
+			}
+		}
+		return -1;
+	}
+
+	static int findPivotDuplicatedValues(int[] arr) {
+		int start = 0;
+		int end = arr.length - 1;
+
+		while (start <= end) {
+			int mid = start + (end - start) / 2;
+			// 4 cases over here
+			if (mid < end && arr[mid] > arr[mid + 1]) {
+				return mid;
+			}
+			if (mid > start && arr[mid] < arr[mid - 1]) {
+				return mid - 1;
+			}
+			// if elements at middle, start, are equal then just skip the duplicates
+			if (arr[mid] == arr[start] && arr[mid] == arr[end]) {
+				// skip the duplicates
+				// NOTE: what if these elements at start and end were the pivot?
+				// check if start is the pivot
+				if (arr[start] > arr[start + 1]) {
+					return start;
+				}
+				start++;
+
+				// check whether end is pivot
+				if (arr[end] < arr[end - 1]) {
+					return end - 1;
+				}
+				end--;
+			}
+			// left side is sorted, so pivot should be in right
+			else if (arr[start] < arr[mid] || (arr[start] == arr[mid] && arr[mid] > arr[end])) {
+				start = mid + 1;
+			} else {
+				end = mid - 1;
+			}
+		}
+		return -1;
+	}
 }
