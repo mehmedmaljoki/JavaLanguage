@@ -47,3 +47,5 @@ w
 G.idea/sonarlint/issuestore/6/4/649f754ed9c9045b92bb3ea4ee22a90875a2fa94,f\5\f5da8d9b3711b83e4fe9e8e18ba2c90f342fd501
 w
 G.idea/sonarlint/issuestore/5/9/592a96ddec0e2d5b8908f9f16153f9da67f8d182,6\c\6c653692927b7618880d98ab1c5ec65d0e7cdffa
+R
+"src/ArrayList_09/BinarySearch.java,c\9\c91792ee30d1ac987ed66c882b5f131312f49833
