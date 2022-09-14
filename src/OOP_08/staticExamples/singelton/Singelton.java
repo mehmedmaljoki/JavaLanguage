@@ -1,4 +1,4 @@
-package OOP_08.singelton;
+package OOP_08.staticExamples.singelton;
 
 /**
  * Eine Klasse, mit dem man nur EIN Objekt erzeugen kann

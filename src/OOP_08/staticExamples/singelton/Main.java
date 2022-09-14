@@ -1,4 +1,4 @@
-package OOP_08.singelton;
+package OOP_08.staticExamples.singelton;
 
 import java.util.Objects;
 
