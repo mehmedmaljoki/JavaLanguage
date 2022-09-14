@@ -49,3 +49,7 @@ w
 G.idea/sonarlint/issuestore/5/9/592a96ddec0e2d5b8908f9f16153f9da67f8d182,6\c\6c653692927b7618880d98ab1c5ec65d0e7cdffa
 R
 "src/ArrayList_09/BinarySearch.java,c\9\c91792ee30d1ac987ed66c882b5f131312f49833
+U
+%src/StringsAndStringBuilder/Main.java,7\9\7946c3cd4563d8696bc21fdb824fd8e1a155fa59
+N
+src/OOP_08/singelton/Main.java,f\f\ffe146a0be4e326dbe86289a7dcce4b58f348642

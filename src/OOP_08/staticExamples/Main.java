@@ -4,6 +4,9 @@ public class Main {
 	public static void main(String[] args) {
 		Human test = new Human(22, "Test", 10000, true);
 
+		// you cannot access non static stuff without referencing their instances in
+		// a static context
+		// here  I am referencing it
 		Main main = new Main();
 		main.greeting();
 
