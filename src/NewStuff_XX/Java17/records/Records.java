@@ -1,4 +1,4 @@
-package NewStuff_XX.Java14.records;
+package NewStuff_XX.Java17.records;
 
 import org.junit.jupiter.api.Test;
 

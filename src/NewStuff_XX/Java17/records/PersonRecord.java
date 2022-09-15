@@ -1,4 +1,4 @@
-package NewStuff_XX.Java14.records;
+package NewStuff_XX.Java17.records;
 
 // evrything here is private and final -> inmutable and cannot extend another class
 // can implements interfaces
