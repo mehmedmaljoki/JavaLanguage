@@ -1,4 +1,4 @@
-package NewStuff_XX.varTypeInference;
+package NewStuff_XX.Java10.varTypeInference;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
